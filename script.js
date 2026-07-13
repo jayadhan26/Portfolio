@@ -213,3 +213,58 @@ cards.forEach(card=>{
 card.style.transitionDelay="0ms";
 
 });
+/* ==========================
+   Portfolio Loader
+========================== */
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        document.getElementById("loader").classList.add("hide");
+
+    },1200);
+
+});
+/*==========================
+Typing Animation
+==========================*/
+
+const text = "Software Test Engineer";
+const typingElement = document.querySelector(".typing");
+
+let index = 0;
+let deleting = false;
+
+function typeEffect() {
+
+    if (!deleting) {
+
+        typingElement.textContent = text.substring(0, index++);
+
+        if (index > text.length) {
+
+            deleting = true;
+
+            setTimeout(typeEffect, 1500);
+
+            return;
+        }
+
+    } else {
+
+        typingElement.textContent = text.substring(0, index--);
+
+        if (index < 0) {
+
+            deleting = false;
+
+        }
+
+    }
+
+    setTimeout(typeEffect, deleting ? 70 : 120);
+
+}
+
+typeEffect();
