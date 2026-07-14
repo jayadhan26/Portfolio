@@ -34,6 +34,18 @@ menuIcon.onclick = () => {
     menuIcon.classList.toggle("bx-x");
     navbar.classList.toggle("active");
 };
+// Close mobile menu after clicking a link
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        menuIcon.classList.remove("bx-x");
+        navbar.classList.remove("active");
+
+    });
+
+});
 // ===========================
 // EmailJS Contact Form
 // ===========================
@@ -268,3 +280,13 @@ function typeEffect() {
 }
 
 typeEffect();
+window.addEventListener("resize", () => {
+
+    if(window.innerWidth > 768){
+
+        navbar.classList.remove("active");
+        menuIcon.classList.remove("bx-x");
+
+    }
+
+});
